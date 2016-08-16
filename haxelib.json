@@ -8,6 +8,6 @@
   "releasenote": "Sparrow and custom Spriter atlases available. Openfl 4.0.2 and above.",
   "contributors": ["loudoweb"],
   "dependencies": {
-    "openfl": "",
+    "openfl": ""
   }
 }
