@@ -1,0 +1,13 @@
+{
+  "name": "openfl-atlas",
+  "url" : "https://github.com/loudoweb/openfl-atlas",
+  "license": "MIT",
+  "tags": ["openfl", "atlas"],
+  "description": "Atlas parser to use with Tilemap. Create all rectangles for you. Allow to get tile's size and a tile by its name",
+  "version": "1.0.0",
+  "releasenote": "Sparrow and custom Spriter atlases available. Openfl 4.0.2 and above.",
+  "contributors": ["loudoweb"],
+  "dependencies": {
+    "openfl": "",
+  }
+}
