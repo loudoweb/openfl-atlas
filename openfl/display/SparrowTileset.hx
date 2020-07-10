@@ -1,4 +1,5 @@
 package openfl.display;
+import haxe.xml.Access;
 import openfl.geom.Rectangle;
 
 /**
@@ -17,7 +18,7 @@ class SparrowTileset extends TilesetEx
 	{
 		super(img);
 		
-		var x = new haxe.xml.Fast( Xml.parse(xml).firstElement() );
+		var x = new Access( Xml.parse(xml).firstElement() );
 		for (texture in x.nodes.SubTexture)
 		{
 			var name = texture.att.name;
