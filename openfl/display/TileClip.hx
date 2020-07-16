@@ -1,5 +1,6 @@
 package openfl.display;
 
+import lime.app.Event;
 import openfl.display.TilesetEx;
 import openfl.display.Tile;
 
@@ -10,7 +11,7 @@ import openfl.display.Tile;
  */
 class TileClip extends Tile
 {
-	public var onComplete:TileClip->Void;
+	public var onComplete:Event<TileClip>;
 
 	public var currentFrame(get, set):Int;
 	public var totalFrames(get, null):Int;
@@ -36,6 +37,8 @@ class TileClip extends Tile
 		
 		this.time = 0;
 		this.prevFrame = -1;
+
+		this.onComplete = new Event<TileClip>();
 	}
 
 	public function update(elapsed:Float)
@@ -55,7 +58,7 @@ class TileClip extends Tile
 				currentFrame = totalFrames - 1;
 			}
 			else id = frames[newFrame];
-			if (onComplete != null) onComplete(this);
+			onComplete.dispatch(this);
 		}
 		else id = frames[newFrame];
 	}
