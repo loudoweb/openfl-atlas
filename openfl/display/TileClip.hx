@@ -12,17 +12,20 @@ class TileClip extends Tile
 {
 	public var onComplete:TileClip->Void;
 
+	public var currentFrame(get, set):Int;
+	public var totalFrames(get, null):Int;
 	public var frames:Array<Int>;
 	public var fps:Int;
 	public var loop:Bool;
+
 	var time:Float;
 	var prevFrame:Int;
 	var animated:Bool;
 
-	public function new(tile:String, tilesetEx:TilesetEx, fps = 12)
+	public function new(tile:String, tilesetEx:TilesetEx, fps = 12, loop = true)
 	{
 		
-		this.loop = true;
+		this.loop = loop;
 		this.animated = false;
 		
 		this.frames = tilesetEx.getAnim(tile);
@@ -37,6 +40,8 @@ class TileClip extends Tile
 
 	public function update(elapsed:Float)
 	{
+		if(!animated) return;
+
 		time += elapsed;
 		var newFrame = currentFrame;
 		if (newFrame == prevFrame) return;
@@ -69,8 +74,6 @@ class TileClip extends Tile
 	}
 	public function stop() { animated = false; }
 
-	public var currentFrame(get, set):Int;
-
 	function get_currentFrame():Int 
 	{
 		var frame:Int = Math.floor((time / 1000) * fps);
@@ -84,7 +87,7 @@ class TileClip extends Tile
 		return value;
 	}
 
-	public var totalFrames(get, null):Int;
+	
 
 	inline function get_totalFrames():Int
 	{

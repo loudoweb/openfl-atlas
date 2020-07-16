@@ -43,11 +43,24 @@ class TilesetEx extends Tileset
 			return anims.get(name);
 			
 		var indices = new Array<Int>();
+		var keys = new Array<String>();
 		
 		for (key in defs.keys())
 		{
 			if (key.startsWith(name)) 
-				indices.push(defs.get(key));
+				keys.push(key);
+		}
+		keys.sort(function(x:String, y:String):Int{
+			if(Std.parseInt(x.split(name)[1]) < Std.parseInt(y.split(name)[1]))
+			{
+				return -1;
+			}else{
+				return 1;
+			}
+		});
+		for(key in keys)
+		{
+			indices.push(defs.get(key));
 		}
 		anims.set(name, indices);
 		return indices;
