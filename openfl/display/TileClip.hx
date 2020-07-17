@@ -11,7 +11,7 @@ import openfl.display.Tile;
  */
 class TileClip extends Tile
 {
-	public var onComplete:Event<TileClip>;
+	public var onComplete:Event<TileClip->Void>;
 
 	public var currentFrame(get, set):Int;
 	public var totalFrames(get, null):Int;
@@ -38,7 +38,7 @@ class TileClip extends Tile
 		this.time = 0;
 		this.prevFrame = -1;
 
-		this.onComplete = new Event<TileClip>();
+		this.onComplete = new Event<TileClip->Void>();
 	}
 
 	public function update(elapsed:Float)
@@ -77,6 +77,12 @@ class TileClip extends Tile
 	}
 	public function stop() { animated = false; }
 
+	public function destroy():Void
+	{
+		onComplete.removeAll();
+		frames = null;
+	}
+
 	function get_currentFrame():Int 
 	{
 		var frame:Int = Math.floor((time / 1000) * fps);
@@ -89,8 +95,6 @@ class TileClip extends Tile
 		id = frames[value];
 		return value;
 	}
-
-	
 
 	inline function get_totalFrames():Int
 	{
