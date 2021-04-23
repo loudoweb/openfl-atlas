@@ -28,10 +28,10 @@ class SpriterTileset extends TilesetEx
 				Std.parseFloat(texture.att.x), Std.parseFloat(texture.att.y),
 				Std.parseFloat(texture.att.w), Std.parseFloat(texture.att.h));
 			
-			var size = if (texture.has.frameX) // trimmed
+			var size = if (texture.has.fX) // trimmed
 					new Rectangle(
-						-Std.parseInt(texture.att.frameX), -Std.parseInt(texture.att.frameY),
-						Std.parseInt(texture.att.frameW), Std.parseInt(texture.att.frameH));
+						-Std.parseInt(texture.att.fX), -Std.parseInt(texture.att.fY),
+						Std.parseInt(texture.att.fW), Std.parseInt(texture.att.fH));
 				else 
 					new Rectangle(0, 0, rect.width, rect.height);
 			
