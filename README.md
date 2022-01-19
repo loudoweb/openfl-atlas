@@ -12,8 +12,8 @@ Code based fairly inspired by [tilelayer by elsassph](https://github.com/elsassp
 
 ### Feature
 
-* get tile id from atlas. e.g: new Tile(tilesetEx.getImageID('knight'))
-* use TileClip to animate your tiles. e.g : new TileClip('knight_', tilesetEx) and then use update() each frame
+* get tile id from atlas. e.g: `new Tile(tilesetEx.getImageID('knight'))`
+* use TileClip to animate your tiles. e.g : `new TileClip('knight_', tilesetEx)` and then use `update()` each frame
 
 ### TODO
 
