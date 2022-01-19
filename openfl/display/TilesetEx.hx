@@ -8,7 +8,8 @@ using StringTools;
  */
 class TilesetEx extends Tileset
 {
-	var defs:Map<String, Int>;
+	public var defs(default, null):Map<String, Int>;
+	
 	var sizes:Array<Rectangle>;
 	
 	var anims:Map<String,Array<Int>>;
@@ -26,6 +27,9 @@ class TilesetEx extends Tileset
 		{
 			return defs.get(name);
 		}
+		#if atlas_debug
+		trace( name + " doesn't exist.");
+		#end
 		return -1;
 	}
 	public function getSize(id:Int):Rectangle

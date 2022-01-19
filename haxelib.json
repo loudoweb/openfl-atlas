@@ -4,8 +4,8 @@
   "license": "MIT",
   "tags": ["openfl", "atlas"],
   "description": "Atlas parser to use with Tilemap. Create all rectangles for you. Allow to get tile's size and a tile by its name",
-  "version": "1.1.0",
-  "releasenote": "Add animation",
+  "version": "1.2.0",
+  "releasenote": "Add way to loop through definitions",
   "contributors": ["loudoweb"],
   "dependencies": {
     "openfl": ""
